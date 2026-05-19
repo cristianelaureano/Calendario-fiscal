@@ -155,49 +155,49 @@ const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Ag
 
 const OBRIGACOES = [
   {
-    dia: 20, nome: 'FGTS', tipo: 'trab',
+    dia: 20, nome: 'FGTS', tipo: 'trab', mesesAtivos: null,
     desc: 'Recolhimento do Fundo de Garantia por Tempo de Serviço — competência do mês anterior.',
     federal: { prazo: 'Dia 20 do mês subsequente (antecipado para o 1º dia útil anterior se cair em fim de semana/feriado)', base: 'Lei 8.036/90 · FGTS Digital — vigente desde março/2024' },
     estados: null,
     nota: '⚠️ O prazo antigo era dia 7. Com o FGTS Digital (obrigatório desde 01/03/2024), o vencimento passou para o dia 20. Recolher via GFD (Guia FGTS Digital) exclusivamente via PIX até 21h59. Não há mais GRRF manual para novas competências.'
   },
   {
-    dia: 15, nome: 'EFD-REINF', tipo: 'fed',
+    dia: 15, nome: 'EFD-REINF', tipo: 'fed', mesesAtivos: null, venc: 'dia15post',
     desc: 'Escrituração Fiscal Digital de Retenções e Outras Informações Fiscais — eventos periódicos mensais.',
     federal: { prazo: 'Dia 15 do mês seguinte (postergado para o 1º dia útil seguinte se cair em dia não útil)', base: 'IN RFB 2.043/2021 · IN RFB 2.133/2023' },
     estados: null,
     nota: 'Informar: R-2010 (serviços tomados com retenção), R-2020 (serviços prestados), R-4010/4020 (rendimentos PF/PJ), R-2055 (aquisição de produção rural). A EFD-REINF integra automaticamente com a DCTFWeb.'
   },
   {
-    dia: 20, nome: 'INSS — Contribuição previdenciária', tipo: 'trab',
+    dia: 20, nome: 'INSS — Contribuição previdenciária', tipo: 'trab', mesesAtivos: null,
     desc: 'Recolhimento da contribuição previdenciária patronal e dos segurados — folha de pagamento.',
     federal: { prazo: 'Dia 20 do mês seguinte (antecipado para o dia útil anterior se não útil)', base: 'Art. 30 Lei 8.212/91 · IN RFB 2.237/2024' },
     estados: null,
     nota: 'Para empresas no eSocial, o recolhimento é via DARF gerado pela DCTFWeb. O prazo de pagamento (dia 20) é diferente do prazo de entrega da DCTFWeb (último dia útil do mês).'
   },
   {
-    dia: 20, nome: 'IRRF — Salários e serviços', tipo: 'fed',
+    dia: 20, nome: 'IRRF — Salários e serviços', tipo: 'fed', mesesAtivos: null,
     desc: 'Imposto de Renda Retido na Fonte sobre salários, pró-labore e serviços.',
     federal: { prazo: 'Dia 20 do mês subsequente (antecipado para o dia útil anterior se não útil)', base: 'RIR/2018 · IN RFB 1.500/2014' },
     estados: null,
     nota: 'DARF código 0561 (trabalho assalariado) e 1708 (serviços de PJ). Atenção: o prazo de pagamento (dia 20) difere do prazo de entrega da DCTFWeb (último dia útil do mês).'
   },
   {
-    dia: 25, nome: 'PIS / COFINS', tipo: 'fed',
+    dia: 25, nome: 'PIS / COFINS', tipo: 'fed', mesesAtivos: null,
     desc: 'Apuração e recolhimento pelo regime não cumulativo — Lucro Real.',
     federal: { prazo: 'Dia 25 do mês seguinte ao fato gerador (antecipado se não útil)', base: 'Lei 10.637/02 · Lei 10.833/03 · Art. 18 MP 2.158-35/01 com redação da Lei 11.933/09' },
     estados: null,
     nota: '⚠️ O prazo é dia 25 — não dia 20. Regime não cumulativo obrigatório para Lucro Real. DARF: COFINS não cumulativa = código 5856 · PIS não cumulativo = código 6912. Verificar créditos: insumos, energia, aluguéis, depreciação de bens produtivos.'
   },
   {
-    dia: 25, nome: 'IPI — Indústria de confecções', tipo: 'fed',
+    dia: 25, nome: 'IPI — Indústria de confecções', tipo: 'fed', mesesAtivos: null,
     desc: 'Imposto sobre Produtos Industrializados — apuração mensal.',
     federal: { prazo: 'Dia 25 do mês subsequente (produtos em geral, inclusive confecções)', base: 'RIPI · Decreto 7.212/2010 · Art. 18 MP 2.158-35/01' },
     estados: null,
     nota: 'Confecções de vestuário geralmente têm alíquota zero ou reduzida. Verificar NCM produto a produto na TIPI. Mesmo com alíquota zero, a obrigação de escrituração no SPED permanece.'
   },
   {
-    dia: 20, nome: 'ICMS — Recolhimento', tipo: 'est',
+    dia: 20, nome: 'ICMS — Recolhimento', tipo: 'est', mesesAtivos: null, venc: 'semPrazoFederal',
     desc: 'Imposto sobre Circulação de Mercadorias e Serviços — vencimento varia por estado e segmento.',
     federal: null,
     estados: [
@@ -232,7 +232,7 @@ const OBRIGACOES = [
     nota: 'Prazos vigentes em 2025/2026. Podem ser antecipados em meses com feriados prolongados. Consultar o Calendário Fiscal de cada SEFAZ.'
   },
   {
-    dia: 20, nome: 'GIA / DAPI / DIME — Declaração estadual ICMS', tipo: 'est',
+    dia: 20, nome: 'GIA / DAPI / DIME — Declaração estadual ICMS', tipo: 'est', mesesAtivos: null, venc: 'semPrazoFederal',
     desc: 'Guia de Informação e Apuração do ICMS — obrigação acessória mensal nos estados com GIA própria.',
     federal: null,
     estados: [
@@ -253,7 +253,7 @@ const OBRIGACOES = [
     nota: 'Muitos estados já migraram para o SPED ICMS como obrigação principal. A GIA/DAPI pode coexistir como complementar. Conferir com o regulamento estadual vigente.'
   },
   {
-    dia: 25, nome: 'EFD ICMS/IPI — SPED Fiscal', tipo: 'est',
+    dia: 25, nome: 'EFD ICMS/IPI — SPED Fiscal', tipo: 'est', mesesAtivos: null,
     desc: 'Escrituração Fiscal Digital — livros fiscais de ICMS e IPI, entregue mensalmente.',
     federal: { prazo: 'Até o dia 15 do mês seguinte (federal) — estados podem antecipar', base: 'Ajuste SINIEF 2/2009 · IN RFB 2.003/2021' },
     estados: [
@@ -276,49 +276,53 @@ const OBRIGACOES = [
     nota: 'O arquivo EFD deve ser validado no PVA (Programa Validador e Assinador) antes da transmissão. Leiaute conforme Ato COTEPE/ICMS 44/2018. Prazos validados conforme regulamentos estaduais vigentes.'
   },
   {
-    dia: 25, nome: 'EFD Contribuições — SPED PIS/COFINS', tipo: 'fed',
+    dia: 25, nome: 'EFD Contribuições — SPED PIS/COFINS', tipo: 'fed', mesesAtivos: null, venc: 'efdContrib',
     desc: 'Escrituração Fiscal Digital das Contribuições Sociais — PIS, COFINS e créditos.',
     federal: { prazo: 'Até o 10º dia útil do 2º mês subsequente', base: 'IN RFB 1.252/2012' },
     estados: null,
     nota: 'Obrigatória para empresas tributadas pelo Lucro Real. Atenção ao registro M100 (créditos de PIS) e M500 (créditos de COFINS). Inconsistência com SPED Fiscal pode gerar malha fiscal.'
   },
   {
-    dia: 'último dia útil', nome: 'IRPJ / CSLL — Estimativa mensal', tipo: 'fed',
+    dia: 'último dia útil', nome: 'IRPJ / CSLL — Estimativa mensal', tipo: 'fed', mesesAtivos: null,
     desc: 'Recolhimento mensal por estimativa ou suspensão/redução com balanço de verificação — Lucro Real.',
     federal: { prazo: 'Último dia útil do mês subsequente ao mês de apuração', base: 'Art. 4º Lei 9.430/96 · IN RFB 1.700/2017' },
     estados: null,
     nota: '⚠️ O prazo é o último dia útil do mês — não dia 25. Empresa pode optar por balanço de suspensão ou redução. Manter LALUR e LACS atualizados. DARF código 2362 (IRPJ estimativa) e 2430 (CSLL estimativa). O prazo de entrega da DCTFWeb (que consolida esses DARFs) também é o último dia útil do mês.'
   },
   {
-    dia: 20, nome: 'DCTFWeb + MIT — Entrega mensal', tipo: 'fed',
+    dia: 'último dia útil', nome: 'DCTFWeb + MIT — Entrega mensal', tipo: 'fed', mesesAtivos: null,
     desc: 'Declaração unificada de débitos tributários federais — extinguiu a DCTF PGD a partir de janeiro/2025.',
     federal: { prazo: 'Último dia útil do mês seguinte ao fato gerador', base: 'IN RFB 2.237/2024 · IN RFB 2.248/2025' },
     estados: null,
     nota: '⚠️ Grande mudança 2025: a DCTF PGD foi extinta. IRPJ, CSLL, IPI, PIS, COFINS, IRRF e outros tributos federais passaram para a DCTFWeb via MIT. O prazo de entrega da declaração é o último dia útil do mês, mas o prazo de pagamento dos tributos mantém suas datas próprias: dia 20 (INSS/IRRF) e dia 25 (PIS/COFINS/IPI).'
   },
   {
-    dia: 20, nome: 'eSocial — Fechamento de folha', tipo: 'trab',
+    dia: 20, nome: 'eSocial — Fechamento de folha', tipo: 'trab', mesesAtivos: null,
     desc: 'Envio dos eventos de remuneração (S-1200, S-1210) e fechamento do período (S-1299).',
     federal: { prazo: 'S-1299 (fechamento): até o dia 20 do mês seguinte, alinhado ao FGTS Digital', base: 'Manual de Orientação do eSocial v.S-1.2' },
     estados: null,
     nota: 'Sequência obrigatória: S-1200 (remuneração) → S-1210 (pagamentos) → S-1299 (fechamento). Após o S-1299, a DCTFWeb e o FGTS Digital são gerados automaticamente. Atenção ao prazo do S-2299 (desligamento — 10 dias corridos após o desligamento).'
   },
   {
-    dia: 28, nome: 'SPED Contábil — ECD (anual)', tipo: 'soc',
+    dia: 'último dia útil', nome: 'SPED Contábil — ECD (anual)', tipo: 'soc',
+    mesesAtivos: [5],
     desc: 'Escrituração Contábil Digital — entrega anual do razão, balancetes e balanços.',
     federal: { prazo: 'Último dia útil de junho do ano seguinte (competência do ano anterior)', base: 'IN RFB 2.003/2021 · Resolução CFC 1.420/13' },
     estados: null,
-    nota: 'Embora o prazo seja anual, a contabilidade deve estar escriturada mensalmente para conformidade com CPCs e para suportar o SPED Fiscal e a EFD Contribuições. Assinatura digital com certificado e-PJ ou e-CNPJ.'
+    nota: 'Obrigação anual — aparece apenas em junho. A contabilidade deve estar escriturada mensalmente para conformidade com CPCs. Assinatura digital com certificado e-PJ ou e-CNPJ.',
+    venc: 'ultimoUtil'
   },
   {
-    dia: 30, nome: 'MIT — Malha de Importação e Exportação', tipo: 'fed',
-    desc: 'Declaração de operações de importação e exportação — Siscomex / Pucomex.',
-    federal: { prazo: 'Conforme tipo de operação: LI (antes do embarque), DI (no desembaraço), DUIMP (importação simplificada)', base: 'IN RFB 1.639/2016 · IN RFB 680/2006' },
+    dia: 'último dia útil', nome: 'ECF — Escrituração Contábil Fiscal (anual)', tipo: 'fed',
+    mesesAtivos: [6],
+    desc: 'Declaração anual do IRPJ e CSLL — substitui a DIPJ. Prazo: último dia útil de julho.',
+    federal: { prazo: 'Último dia útil de julho do ano seguinte', base: 'IN RFB 1.422/2013' },
     estados: null,
-    nota: 'Para indústria de moda com importação de tecidos, aviamentos e matéria-prima: verificar NCM, alíquotas II/IPI, regimes de Drawback (suspensão) e possibilidade de Ex-Tarifário. Despacho aduaneiro via Siscomex.'
+    nota: 'Obrigação anual — aparece apenas em julho. Transmitida via PGE (Programa Gerador da ECF). Contém o LALUR e LACS digital. Prazo pode ser prorrogado por IN específica da Receita Federal.',
+    venc: 'ultimoUtil'
   },
   {
-    dia: 30, nome: 'ICMS-ST — Substituição tributária interestadual', tipo: 'est',
+    dia: 30, nome: 'ICMS-ST — Substituição tributária interestadual', tipo: 'est', mesesAtivos: null, venc: 'semPrazoFederal',
     desc: 'Recolhimento do ICMS retido por ST nas operações interestaduais — prazo varia por estado de destino.',
     federal: null,
     estados: [
@@ -339,7 +343,7 @@ const OBRIGACOES = [
     nota: 'Vestuário e confecções estão sujeitos à ST em vários estados por Protocolos e Convênios ICMS. Verificar Convênio ICMS 92/15 e lista de produtos com ST por NCM. Com a EC 132/2023, revisar operações entre filiais.'
   },
   {
-    dia: 30, nome: 'DIFAL — Diferencial de alíquota ICMS (e-commerce)', tipo: 'est',
+    dia: 30, nome: 'DIFAL — Diferencial de alíquota ICMS (e-commerce)', tipo: 'est', mesesAtivos: null, venc: 'semPrazoFederal',
     desc: 'Recolhimento do DIFAL nas vendas a consumidor final não contribuinte em outro estado.',
     federal: null,
     estados: [
@@ -355,7 +359,7 @@ const OBRIGACOES = [
     nota: 'Após LC 190/2022, o DIFAL exige inscrição estadual no estado de destino ou recolhimento por GNRE. Atenção à partilha 60%/40% para o Fundo de Equilíbrio Fiscal (FEF) conforme a UF.'
   },
   {
-    dia: 30, nome: 'Conciliação contábil e fechamento mensal', tipo: 'soc',
+    dia: 'último dia útil', nome: 'Conciliação contábil e fechamento mensal', tipo: 'soc', mesesAtivos: null, venc: 'semPrazoFederal',
     desc: 'Balancete de verificação, conciliação de contas, provisões e ajustes CPC/IFRS.',
     federal: { prazo: 'Prazo interno — recomendado até o último dia útil do mês', base: 'CPC 00 · CPC 16 · CPC 27 · CPC 47 · IFRS 15 · IFRS 16' },
     estados: null,
@@ -466,30 +470,40 @@ function ultimoDiaUtilMesRef(mesRef, anoRef) {
   return ultimo;
 }
 
+// Dia nominal no mês seguinte — postergado para o próximo dia útil se não útil (ex: EFD-REINF)
+function diaUtilPost(mesRef, anoRef, diaNominal) {
+  let anoVenc = anoRef, mesVenc = mesRef + 1;
+  if (mesVenc > 11) { mesVenc = 0; anoVenc++; }
+  const feriados = feriadosDoAno(anoVenc);
+  const ultimoDia = new Date(anoVenc, mesVenc + 1, 0).getDate();
+  const dia = Math.min(diaNominal, ultimoDia);
+  let d = new Date(anoVenc, mesVenc, dia);
+  while (!ehUtil(d, feriados)) d.setDate(d.getDate() + 1);
+  return d;
+}
+
 // Calcula o vencimento real de cada obrigação dado o mês/ano de REFERÊNCIA (competência)
 function calcVencimento(o, mesRef, anoRef) {
   switch(o.venc) {
-    case 'dia15':        return diaUtil(mesRef, anoRef, 15);
-    case 'dia20':        return diaUtil(mesRef, anoRef, 20);
-    case 'dia25':        return diaUtil(mesRef, anoRef, 25);
-    case 'ultimoUtil':   return ultimoDiaUtil(mesRef, anoRef);
-    case 'efdContrib':   return decimoDiaUtilSegundoMes(mesRef, anoRef);
-    // Casos sem prazo federal fixo (estaduais variáveis, societários, importação):
-    // usa o último dia útil do próprio mês de referência como âncora de ordenação
-    default:             return ultimoDiaUtilMesRef(mesRef, anoRef);
+    case 'dia15':          return diaUtil(mesRef, anoRef, 15);
+    case 'dia15post':      return diaUtilPost(mesRef, anoRef, 15);
+    case 'dia20':          return diaUtil(mesRef, anoRef, 20);
+    case 'dia25':          return diaUtil(mesRef, anoRef, 25);
+    case 'ultimoUtil':     return ultimoDiaUtil(mesRef, anoRef);      // com lei → mês seguinte
+    case 'efdContrib':     return decimoDiaUtilSegundoMes(mesRef, anoRef);
+    case 'semPrazoFederal': return ultimoDiaUtilMesRef(mesRef, anoRef); // sem lei → próprio mês
+    default:               return ultimoDiaUtilMesRef(mesRef, anoRef);
   }
 }
 
-// ── Adicionar campo `venc` em cada obrigação ──────────────────────────────────
+// ── Mapear campo `venc` apenas para obrigações que não definiram explicitamente ──
 OBRIGACOES.forEach(o => {
-  if (!o.venc) {
-    if      (o.dia === 15)                         o.venc = 'dia15';
-    else if (o.dia === 20)                         o.venc = 'dia20';
-    else if (o.dia === 25)                         o.venc = 'dia25';
-    else if (o.dia === 'último dia útil')          o.venc = 'ultimoUtil';
-    else if (o.nome.includes('EFD Contribu'))      o.venc = 'efdContrib';
-    else                                           o.venc = 'semPrazoFederal'; // estaduais/variáveis
-  }
+  if (o.venc) return; // já definido explicitamente — não sobrescrever
+  if      (o.dia === 15)                         o.venc = 'dia15';
+  else if (o.dia === 20)                         o.venc = 'dia20';
+  else if (o.dia === 25)                         o.venc = 'dia25';
+  else if (o.dia === 'último dia útil')          o.venc = 'ultimoUtil';
+  else                                           o.venc = 'semPrazoFederal';
 });
 
 // ── Init ──────────────────────────────────────────────────────────────────────
@@ -533,6 +547,7 @@ function render() {
 
   const filtradas = OBRIGACOES.filter(o => {
     if (!filtrosAtivos[o.tipo]) return false;
+    if (o.mesesAtivos && !o.mesesAtivos.includes(mes)) return false;
     if (busca && !o.nome.toLowerCase().includes(busca) && !o.desc.toLowerCase().includes(busca)) return false;
     return true;
   });
